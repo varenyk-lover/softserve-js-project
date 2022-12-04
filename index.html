@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Denis Novic</title>
+    <link href="./styles/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript">
+        function myFunction() {
+            let x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#contacts">Contacts</a>
+    </div>
+    <div class="topnav" id="myTopnav">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#contacts">Contacts</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <img src="images/burger-menu-icon.svg" alt="menu icon">
+        </a>
+    </div>
+</header>
+
+<main>
+    <!--    SECTION 1 Home-->
+    <section class="home-section white-section" id="home">
+        <div class="flex-container main-content">
+            <div class="main-content-item">
+                <div class=" heading-container">
+                    <h1>Shop of
+                        <br>
+                        your life</h1>
+                </div>
+                <div>
+                    <p>Find your lifebalance here.
+                        <br>Get what you need the most!</p>
+                </div>
+            </div>
+
+
+            <div class="buy-buttons-container">
+                <div>
+                    <button id="authorization-button">Log in</button>
+                </div>
+                <div>
+                    <button id="cart-button">Shopping cart</button>
+                </div>
+            </div>
+
+
+            <div class="little-portrait">
+                <img alt="portrait of man with black hair and glasses" src="images/portrait-mini.png">
+            </div>
+        </div>
+
+        <div class="big-portrait">
+            <img alt="portrait of man with black hair and glasses" src="images/portrait.png">
+        </div>
+
+
+    </section>
+
+
+    <!--    SECTION 2 Shop-->
+
+    <section class="section-skills white-section" id="shop">
+        <h2>Shop</h2>
+        <p>Choose items to make your life better</p>
+
+        <div class="flex-container card-container">
+
+            <div class="skills-card flex-column">
+                <div class="image-item-box">
+                 <!--   <img alt="Illustrator icon" class="image-item"
+                         src="images/health.jpg">-->
+                </div>
+                <h3>Health</h3>
+                <div class="price-box">
+                    <span>5</span>
+                    <div><img class="star-icon" alt="Star icon" src="images/star-solid.svg"></div>
+                    <button class="plus-box">+</button>
+                </div>
+            </div>
+
+            <div class="skills-card flex-column">
+                <div class="image-item-box">
+                 <!--   <img alt="Illustrator icon" class="image-item"
+                         src="images/love.jpg">-->
+                </div>
+                <h3>Love</h3>
+                <div class="price-box">
+                    <span>5</span>
+                    <div><img class="star-icon" alt="Star icon" src="images/star-solid.svg"></div>
+                    <button class="plus-box">+</button>
+                </div>
+            </div>
+
+            <div class="skills-card flex-column">
+                <div class="image-item-box">
+                <!--    <img alt="Illustrator icon" class="image-item"
+                         src="images/health.jpg">-->
+                </div>
+                <h3>Time</h3>
+                <div class="price-box">
+                    <span>5</span>
+                    <div><img class="star-icon" alt="Star icon" src="images/star-solid.svg"></div>
+                    <button class="plus-box">+</button>
+                </div>
+            </div>
+
+            <div class="skills-card flex-column">
+                <div class="image-item-box">
+                    <!--<img alt="Illustrator icon" class="image-item"
+                         src="images/health.jpg">-->
+                </div>
+                <h3>Peace</h3>
+                <div class="price-box">
+                    <span>5</span>
+                    <div><img class="star-icon" alt="Star icon" src="images/star-solid.svg"></div>
+                    <button class="plus-box">+</button>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+</main>
+
+<footer class="flex-column" id="contacts">
+
+    <div class="contacts-content-container flex-column">
+
+        <h2 class="footer-title">Contacts</h2>
+        <p>Want to know more or just chat?
+            <br>
+            You are welcome!</p>
+        <button>Send message</button>
+
+        <div class="flex-container socialmedia-card">
+
+            <div>
+                <a href="https://www.linkedin.com/" target="_blank">
+                    <img alt="Linkedin icon"
+                         class="socialmedia-icon"
+                         src="images/linkedin-icon.svg">
+                </a>
+            </div>
+
+            <div>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img alt="Instagram icon"
+                         class="socialmedia-icon"
+                         src="images/insta-icon.svg">
+                </a>
+            </div>
+
+            <div>
+                <a href="https://www.behance.net/" target="_blank">
+                    <img alt="Behance icon"
+                         class="socialmedia-icon"
+                         src="images/behance-icon.svg">
+                </a>
+            </div>
+
+            <div>
+                <a href="https://dribbble.com/" target="_blank">
+                    <img alt="Dribble icon"
+                         class="socialmedia-icon"
+                         src="images/dribble-icon.svg">
+                </a>
+            </div>
+        </div>
+
+        <p class="socialmedia-description">Like us on
+            <br>
+            LinkedIn, Instagram, Behance, Dribble</p>
+
+    </div>
+
+</footer>
+</body>
+
+</html>
