@@ -257,7 +257,7 @@ h1 {
 }
 
 
-/*SECTION 2 Skills*/
+/*SECTION 2 Shop*/
 
 .section-skills {
   padding-bottom: 110px;
@@ -281,11 +281,12 @@ h1 {
 
 .skills-card {
   width: 165px;
-  height: 225px;
+
 
   @media screen and (max-width: 992px) {
     margin-bottom: 80px;
   }
+
 
   .price-box {
     width: 50%;
@@ -293,7 +294,6 @@ h1 {
     justify-content: space-between;
 
     span {
-
       font-family: "Gilroy-Medium", sans-serif;
       font-size: 27px;
       line-height: 28px;
@@ -314,10 +314,7 @@ h1 {
   }
 }
 
-/*.visual-editor-icon {
-  width: 90px;
-  height: 90px;
-}*/
+
 
 h3 {
   color: #828282;
@@ -344,17 +341,12 @@ h3 {
 
 }
 
-.image-item-box {
+.imageItemBox {
   width: 165px;
-  height: 220px;
+  height: 165px;
 
 }
-.image-item {
-/*  width: 165px;
-  height: 220px;*/
-  background-image: url("../images/health.jpg");
-  background-size: cover;
-}
+
 .section-skills {
   justify-content: center;
 }

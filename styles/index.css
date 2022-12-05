@@ -254,7 +254,7 @@ h1 {
   object-fit: contain;
 }
 
-/*SECTION 2 Skills*/
+/*SECTION 2 Shop*/
 .section-skills {
   padding-bottom: 110px;
 }
@@ -278,7 +278,6 @@ h1 {
 
 .skills-card {
   width: 165px;
-  height: 225px;
 }
 @media screen and (max-width: 992px) {
   .skills-card {
@@ -307,10 +306,6 @@ h1 {
   padding-bottom: 20px;
 }
 
-/*.visual-editor-icon {
-  width: 90px;
-  height: 90px;
-}*/
 h3 {
   color: #828282;
   font-size: 18px;
@@ -335,16 +330,9 @@ h3 {
   }
 }
 
-.image-item-box {
+.imageItemBox {
   width: 165px;
-  height: 220px;
-}
-
-.image-item {
-  /*  width: 165px;
-    height: 220px;*/
-  background-image: url("../images/health.jpg");
-  background-size: cover;
+  height: 165px;
 }
 
 .section-skills {
