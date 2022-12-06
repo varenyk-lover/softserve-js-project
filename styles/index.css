@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 
-body, h1, h2, h3, button, header a {
+body, h1, h2, h3, header a {
   margin: 0;
   font-family: "Gilroy-Bold", sans-serif;
 }
@@ -263,6 +263,59 @@ h1 {
   }
 }
 
+.modal-window {
+  width: 50%;
+  height: 50%;
+  border: 1px solid #828282;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 250px;
+  display: none;
+}
+.modal-window h2 {
+  padding-top: 30px;
+}
+.modal-window p {
+  padding-top: 20px;
+  text-align: center;
+}
+.modal-window .login-form {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal-window .login-form input {
+  width: 30%;
+  height: 40px;
+  border-bottom: 1px solid #828282;
+  border-radius: 25px;
+  margin: 10px 0;
+}
+.modal-window .login-form .login-button {
+  margin-top: 20px;
+}
+.modal-window .register-button-block {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+}
+.modal-window .register-button-block .register-button {
+  margin-top: 10px;
+}
+.modal-window #close-button {
+  font-size: 20px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  transform: translateX(-90%);
+  top: 20px;
+}
+
 .portfolio-content-container img {
   width: 100%;
   object-fit: contain;
@@ -419,7 +472,7 @@ footer h2 + p {
   }
 }
 
-button {
+.button {
   width: 180px;
   height: 42px;
   color: #FFFFFF;
@@ -427,9 +480,11 @@ button {
   background-color: #070707;
   border-radius: 25px;
   border: 1px solid #070707;
+  margin: 0;
+  font-family: "Gilroy-Bold", sans-serif;
 }
 @media screen and (max-width: 600px) {
-  button {
+  .button {
     width: 100%;
   }
 }

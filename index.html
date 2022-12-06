@@ -55,13 +55,40 @@
 
             <div class="buy-buttons-container">
                 <div>
-                    <button id="authorization-button">Log in</button>
+                    <button class="button" id="authorization-button">Log in</button>
                 </div>
                 <div>
-                    <button id="cart-button">Shopping cart</button>
+                    <button class="button" id="cart-button">Shopping cart</button>
                 </div>
             </div>
 
+            <div id="modal-window" class="modal-window">
+                <button  class="button" id="close-button">x</button>
+                <h2>Log in form</h2>
+                <p id="modal-window-text">
+                    Please, log in, if you want buy something.
+                   </p>
+
+                <div>
+                    <form class="login-form" id="login-form">
+                        <input id="userName" type="text" placeholder="Enter Username" value=""/>
+                        <input id="userPw" type="password" placeholder="Enter Password" value=""/>
+                        <input class="button login-button" id="login_btn" type="submit" value="Log in"
+                               onClick="check()"/>
+                    </form>
+                <!--    <form id="register-form">
+                        <input id="name" type="text" placeholder="Name" value=""/>
+                        <input id="pw" type="password" placeholder="Password" value=""/>
+                        <input id="rgstr_btn" type="submit" value="Register" onClick="store()"/>
+                    </form>-->
+                    <div class="register-button-block">
+                    <p>You don't have account? Create one.</p>
+                    <button  class="button register-button" id="register-button">Register</button>
+                    </div>
+                </div>
+
+
+            </div>
 
             <div class="little-portrait">
                 <img alt="portrait of man with black hair and glasses" src="images/portrait-mini.png">
@@ -96,7 +123,7 @@
         <p>Want to know more or just chat?
             <br>
             You are welcome!</p>
-        <button>Send message</button>
+        <button class="button">Send message</button>
 
         <div class="flex-container socialmedia-card">
 

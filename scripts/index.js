@@ -1,4 +1,18 @@
 // Home section
+const authorizationButton = document.getElementById('authorization-button');
+const modalWindow = document.getElementById('modal-window');
+
+authorizationButton.addEventListener('click', (event) => {
+    const modalWindow = document.getElementById('modal-window')
+    modalWindow.style.display = 'block';
+const body = document.body;
+})
+
+const closeButton = document.getElementById('close-button')
+closeButton.addEventListener('click', (event) => {
+    modalWindow.style.display = 'none';
+})
+
 
 //Shop section
 
@@ -34,7 +48,7 @@ document.getElementById('cardContainer').innerHTML = productItems.map(shopCard =
                 <div class="price-box">
                     <span>${shopCard.price}</span>
                     <div><img class="star-icon" alt="Star icon" src="images/star-solid.svg"></div>
-                    <button class="buy-button">Buy</button>
+                    <button class="button buy-button">Buy</button>
                 </div>
             </div>`
 ).join('');
