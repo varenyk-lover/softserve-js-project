@@ -31,7 +31,20 @@ p, img + a {
 
 
 /*HEADER*/
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position:-webkit-sticky; position:sticky; top:0;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
+}
+
 header {
+  //position: absolute;
+  background-color: white;
   padding: 0 250px;
   margin: 0 auto;
   max-width: 1440px;
@@ -52,6 +65,7 @@ header {
 }
 
 .header-container {
+  background-color: white;
   height: 90px;
   display: flex;
   justify-content: space-between;
@@ -279,8 +293,14 @@ h1 {
   }
 }
 
+
+#health {
+  height: 100%;
+  width: 165px;
+}
 .skills-card {
   width: 165px;
+
 
 
   @media screen and (max-width: 992px) {
@@ -289,27 +309,28 @@ h1 {
 
 
   .price-box {
-    width: 50%;
     display: flex;
     justify-content: space-between;
 
     span {
       font-family: "Gilroy-Medium", sans-serif;
-      font-size: 27px;
+      font-size: 30px;
       line-height: 28px;
       margin: 0;
       color: #070707;
+      padding-top: 5px;
     }
 
     .star-icon {
-      height: 23px;
-      width: 23px;
+      height: 30px;
+      width: 30px;
+      margin: 2px 0px 0px 2px;
     }
 
-    .plus-box {
-      width: 30px;
-      height: 10px;
-      padding-bottom: 20px;
+    .buy-button {
+      width: 80px;
+      height: 30px;
+    margin: 3px 0px 0px 10px;
     }
   }
 }
@@ -328,13 +349,13 @@ h3 {
   @media screen and (max-width: 992px) {
     width: 50%;
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin: 0px auto;
   }
 
   @media screen and (max-width: 600px) {
     width: 50%;
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin: 0px auto;
     justify-content: space-around;
   }
 
