@@ -34,7 +34,9 @@ p, img + a {
 
 /* The sticky class is added to the header with JS when it reaches its scroll position */
 .sticky {
-  position:-webkit-sticky; position:sticky; top:0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
@@ -216,7 +218,7 @@ h1 {
 
     @media screen and (max-width: 600px) {
       margin-left: 0;
-      padding: auto 10px;
+      //padding: auto 10px;
       font-size: 15px;
     }
   }
@@ -249,7 +251,7 @@ h1 {
   object-fit: contain;
 }
 
-.buy-buttons-container {
+.account-buttons-container {
   padding-top: 5px;
   padding-bottom: 18px;
   width: 180px;
@@ -257,14 +259,18 @@ h1 {
   flex-flow: column;
   justify-content: space-between;
 
+  .cart-button:disabled {
+    color: white;
+    background-color: #828282;
+    border: 1px solid #828282;
+  }
 
-  #authorization-button {
+  .authorization-button {
     @media screen and (max-width: 992px) {
       margin-bottom: 20px;
     }
   }
 }
-
 
 
 .modal-window {
@@ -281,60 +287,60 @@ h1 {
   h2 {
     padding-top: 30px;
   }
+
   p {
-    padding-top: 20px;
-    //font-family: "Gilroy-Bold", sans-serif;
-    //font-size: 30px;
-    //color: black;
+    margin-top: 20px;
     text-align: center;
   }
 
-  .login-form {
-    margin-top: 10%;
-display: flex;
-    flex-direction: column;
-    align-items: center;
 
-    input {
-      width: 30%;
-      height: 40px;
-      border-bottom: 1px solid #828282;
-      border-radius: 25px;
-      margin: 10px 0;
-    }
+}
 
-    .login-button {
-      margin-top: 20px;
-    }
+.login-form {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input {
+    width: 30%;
+    height: 40px;
+    border-bottom: 1px solid #828282;
+    border-radius: 25px;
+    margin: 10px 0;
   }
-  .register-button-block {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 30px;
 
-    .register-button {
-      margin-top: 10px;
-    }
-  }
-  #close-button {
-    //background-color: #FF5400;
-    //box-shadow: 0 0 20px #FFFFFF;
-    //color: white;
-    //border-radius: 55px;
-    //border-style: solid;
-    //font-family: "Gilroy-Bold", sans-serif;
-    font-size: 20px;
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    right: 0;
-    transform: translateX(-90%);
-    top: 20px;
+  .login-button {
+    margin-top: 20px;
   }
 }
 
+.register-button-block {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
 
+  .register-button {
+    margin-top: 10px;
+  }
+}
+
+#close-button {
+  //background-color: #FF5400;
+  //box-shadow: 0 0 20px #FFFFFF;
+  //color: white;
+  //border-radius: 55px;
+  //border-style: solid;
+  //font-family: "Gilroy-Bold", sans-serif;
+  font-size: 20px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  transform: translateX(-90%);
+  top: 20px;
+}
 
 .portfolio-content-container img {
   width: 100%;
@@ -369,9 +375,9 @@ display: flex;
   height: 100%;
   width: 165px;
 }
+
 .skills-card {
   width: 165px;
-
 
 
   @media screen and (max-width: 992px) {
@@ -395,17 +401,16 @@ display: flex;
     .star-icon {
       height: 30px;
       width: 30px;
-      margin: 2px 0px 0px 2px;
+      margin: 2px 0 0 2px;
     }
 
     .buy-button {
       width: 80px;
       height: 30px;
-    margin: 3px 0px 0px 10px;
+      margin: 3px 0 0 10px;
     }
   }
 }
-
 
 
 h3 {
@@ -420,13 +425,13 @@ h3 {
   @media screen and (max-width: 992px) {
     width: 50%;
     flex-wrap: wrap;
-    margin: 0px auto;
+    margin: 0 auto;
   }
 
   @media screen and (max-width: 600px) {
     width: 50%;
     flex-wrap: wrap;
-    margin: 0px auto;
+    margin: 0 auto;
     justify-content: space-around;
   }
 

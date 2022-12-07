@@ -218,7 +218,6 @@ h1 {
 @media screen and (max-width: 600px) {
   .main-content-item p {
     margin-left: 0;
-    padding: auto 10px;
     font-size: 15px;
   }
 }
@@ -249,7 +248,7 @@ h1 {
   object-fit: contain;
 }
 
-.buy-buttons-container {
+.account-buttons-container {
   padding-top: 5px;
   padding-bottom: 18px;
   width: 180px;
@@ -257,8 +256,13 @@ h1 {
   flex-flow: column;
   justify-content: space-between;
 }
+.account-buttons-container .cart-button:disabled {
+  color: white;
+  background-color: #828282;
+  border: 1px solid #828282;
+}
 @media screen and (max-width: 992px) {
-  .buy-buttons-container #authorization-button {
+  .account-buttons-container .authorization-button {
     margin-bottom: 20px;
   }
 }
@@ -278,35 +282,38 @@ h1 {
   padding-top: 30px;
 }
 .modal-window p {
-  padding-top: 20px;
+  margin-top: 20px;
   text-align: center;
 }
-.modal-window .login-form {
-  margin-top: 10%;
+
+.login-form {
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.modal-window .login-form input {
+.login-form input {
   width: 30%;
   height: 40px;
   border-bottom: 1px solid #828282;
   border-radius: 25px;
   margin: 10px 0;
 }
-.modal-window .login-form .login-button {
+.login-form .login-button {
   margin-top: 20px;
 }
-.modal-window .register-button-block {
+
+.register-button-block {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   bottom: 30px;
 }
-.modal-window .register-button-block .register-button {
+.register-button-block .register-button {
   margin-top: 10px;
 }
-.modal-window #close-button {
+
+#close-button {
   font-size: 20px;
   width: 50px;
   height: 50px;
@@ -371,12 +378,12 @@ h1 {
 .skills-card .price-box .star-icon {
   height: 30px;
   width: 30px;
-  margin: 2px 0px 0px 2px;
+  margin: 2px 0 0 2px;
 }
 .skills-card .price-box .buy-button {
   width: 80px;
   height: 30px;
-  margin: 3px 0px 0px 10px;
+  margin: 3px 0 0 10px;
 }
 
 h3 {
@@ -391,14 +398,14 @@ h3 {
   .card-container {
     width: 50%;
     flex-wrap: wrap;
-    margin: 0px auto;
+    margin: 0 auto;
   }
 }
 @media screen and (max-width: 600px) {
   .card-container {
     width: 50%;
     flex-wrap: wrap;
-    margin: 0px auto;
+    margin: 0 auto;
     justify-content: space-around;
   }
 }

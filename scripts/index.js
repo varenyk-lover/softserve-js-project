@@ -1,18 +1,54 @@
 // Home section
+let cartButton = document.getElementById('cart-button');
+cartButton.disabled = true;
+
+
 const authorizationButton = document.getElementById('authorization-button');
-const modalWindow = document.getElementById('modal-window');
 
-authorizationButton.addEventListener('click', (event) => {
-    const modalWindow = document.getElementById('modal-window')
-    modalWindow.style.display = 'block';
-const body = document.body;
-})
+const loginWindow = document.getElementById('modal-login-window');
 
-const closeButton = document.getElementById('close-button')
+function openLoginWindow() {
+    loginWindow.style.display = 'block';
+}
+
+authorizationButton.addEventListener('click', openLoginWindow);
+
+
+const closeButton = document.getElementById('close-button');
 closeButton.addEventListener('click', (event) => {
-    modalWindow.style.display = 'none';
+    loginWindow.style.display = 'none';
 })
 
+// Login
+function storeLoginData() {
+    localStorage.setItem('name', 'Hanna');
+    localStorage.setItem('pw', '123456');
+}
+
+storeLoginData();
+
+function checkLoginData() {
+    // stored data from the register-form
+    let storedName = localStorage.getItem('name');
+    let storedPw = localStorage.getItem('pw');
+
+    // entered data from the login-form
+    let userName = document.getElementById('userName');
+    let userPw = document.getElementById('userPw');
+
+    // check if stored data from register-form is equal to data from login form
+    if (userName.value == storedName && userPw.value == storedPw) {
+        localStorage.setItem('login', 'true');
+        alert('You are loged in.');
+        cartButton.disabled = false;
+
+    } else {
+        alert('Data is not correct. Please, try again.');
+    }
+}
+
+let loginButton = document.getElementById('login_btn');
+loginButton.addEventListener('click', checkLoginData);
 
 //Shop section
 
@@ -48,33 +84,50 @@ document.getElementById('cardContainer').innerHTML = productItems.map(shopCard =
                 <div class="price-box">
                     <span>${shopCard.price}</span>
                     <div><img class="star-icon" alt="Star icon" src="images/star-solid.svg"></div>
-                    <button class="button buy-button">Buy</button>
+                    <button class="button buy-button" id="buy-button">Buy</button>
                 </div>
             </div>`
 ).join('');
 
+const buyButton = document.getElementById('buy-button');
 
-/*
 
-// When the user scrolls the page, execute myFunction
-window.onscroll = function() {myFunction()};
+function enableBuyButton() {
 
-// Get the header
-var header = document.getElementById("myHeader");
+    let checkActiveLogin = localStorage.getItem('login');
 
-// Get the offset position of the navbar
-var sticky = header.offsetTop;
-
-// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
-    if (window.pageYOffset > sticky) {
-        header.classList.add("sticky");
+    if (checkActiveLogin === 'true') {
+        console.log('User is logged in.');
     } else {
-        header.classList.remove("sticky");
+        openLoginWindow();
     }
 }
 
+buyButton.addEventListener('click', enableBuyButton)
+
+/*function enableShoppingCartButton() {
+
+    const authorizationButton = document.getElementById('authorization-button');
+
+    if (authorizationButton.clicked === true) {
+        cartButton.disabled = false;
+    } else {
+        openLoginWindow();
+    }
+}
+
+authorizationButton.addEventListener('click', enableShoppingCartButton);
+
 */
+/*let cartItems = [];
+const addToCartHandler = (id) => {
+    productItems.map((item) => {
+        if(item.id === id) {
+let savedItems = [...cartItems, item];
+localStorage.setItem('cartItems', JSON.stringify(savedItems));
+        }
+        return item;
+    });
+};
 
-
-
+buyButton.addEventListener('click', addToCartHandler);*/
