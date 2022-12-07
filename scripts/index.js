@@ -19,36 +19,6 @@ closeButton.addEventListener('click', (event) => {
     loginWindow.style.display = 'none';
 })
 
-// Login
-function storeLoginData() {
-    localStorage.setItem('name', 'Hanna');
-    localStorage.setItem('pw', '123456');
-}
-
-storeLoginData();
-
-function checkLoginData() {
-    // stored data from the register-form
-    let storedName = localStorage.getItem('name');
-    let storedPw = localStorage.getItem('pw');
-
-    // entered data from the login-form
-    let userName = document.getElementById('userName');
-    let userPw = document.getElementById('userPw');
-
-    // check if stored data from register-form is equal to data from login form
-    if (userName.value == storedName && userPw.value == storedPw) {
-        localStorage.setItem('login', 'true');
-        alert('You are loged in.');
-        cartButton.disabled = false;
-
-    } else {
-        alert('Data is not correct. Please, try again.');
-    }
-}
-
-let loginButton = document.getElementById('login_btn');
-loginButton.addEventListener('click', checkLoginData);
 
 //Shop section
 
@@ -84,26 +54,68 @@ document.getElementById('cardContainer').innerHTML = productItems.map(shopCard =
                 <div class="price-box">
                     <span>${shopCard.price}</span>
                     <div><img class="star-icon" alt="Star icon" src="images/star-solid.svg"></div>
-                    <button class="button buy-button" id="buy-button">Buy</button>
+                    <button class="button buy-button" disabled id="buy-button" 
+                    title=" Please, log in, if you want buy something.">Buy</button>
                 </div>
             </div>`
 ).join('');
 
-const buyButton = document.getElementById('buy-button');
+
+// Login
+function storeLoginData() {
+    localStorage.setItem('name', 'Hanna');
+    localStorage.setItem('pw', '123456');
+}
+
+storeLoginData();
+
+function checkLoginData(event) {
+    // stored data from the register-form
+    let storedName = localStorage.getItem('name');
+    let storedPw = localStorage.getItem('pw');
+
+    // entered data from the login-form
+    let userName = document.getElementById('userName');
+    let userPw = document.getElementById('userPw');
+
+    // check if stored data from register-form is equal to data from login form
+    if (userName.value == storedName && userPw.value == storedPw) {
+        localStorage.setItem('login', 'true');
+        alert('You are loged in.');
+        cartButton.disabled = false;
+
+        const buyButtons = document.querySelectorAll('.buy-button');
+        console.log(buyButtons);
+        let buyButtonsArr = [...buyButtons];
+        console.log(buyButtonsArr);
+        for (let buyButton of buyButtonsArr) {
+            buyButton.disabled = false;
+        }
+
+        loginWindow.style.display = 'none';
+        event.preventDefault();
+    } else {
+        alert('Data is not correct. Please, try again.');
+    }
+}
 
 
-function enableBuyButton() {
+let loginForm = document.getElementById('login-form');
+loginForm.addEventListener('submit', checkLoginData);
+
+
+/*function enableBuyButton() {
 
     let checkActiveLogin = localStorage.getItem('login');
 
     if (checkActiveLogin === 'true') {
-        console.log('User is logged in.');
+        console.log('Here will be a function to open cart');
     } else {
         openLoginWindow();
     }
 }
 
-buyButton.addEventListener('click', enableBuyButton)
+buyButton.addEventListener('click', enableBuyButton)*/
 
 /*function enableShoppingCartButton() {
 

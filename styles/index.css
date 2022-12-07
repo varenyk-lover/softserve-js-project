@@ -27,6 +27,12 @@ p, img + a {
   color: #070707;
 }
 
+button:disabled {
+  color: white;
+  background-color: #828282;
+  border: 1px solid #828282;
+}
+
 /*HEADER*/
 /* The sticky class is added to the header with JS when it reaches its scroll position */
 .sticky {
@@ -255,11 +261,6 @@ h1 {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-}
-.account-buttons-container .cart-button:disabled {
-  color: white;
-  background-color: #828282;
-  border: 1px solid #828282;
 }
 @media screen and (max-width: 992px) {
   .account-buttons-container .authorization-button {

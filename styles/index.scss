@@ -29,6 +29,11 @@ p, img + a {
   color: #070707;
 }
 
+button:disabled {
+  color: white;
+  background-color: #828282;
+  border: 1px solid #828282;
+}
 
 /*HEADER*/
 
@@ -259,11 +264,7 @@ h1 {
   flex-flow: column;
   justify-content: space-between;
 
-  .cart-button:disabled {
-    color: white;
-    background-color: #828282;
-    border: 1px solid #828282;
-  }
+
 
   .authorization-button {
     @media screen and (max-width: 992px) {
