@@ -1,9 +1,11 @@
 // Home section
-let cartButton = document.getElementById('cart-button');
-cartButton.disabled = true;
 
 
+// Authorization Button
 const authorizationButton = document.getElementById('authorization-button');
+authorizationButton.innerHTML = 'Log in';
+const loginSuccessfulMessage = document.getElementById('login-successful');
+loginSuccessfulMessage.style.display = 'none';
 
 const loginWindow = document.getElementById('modal-login-window');
 
@@ -12,14 +14,30 @@ function openLoginWindow() {
 }
 
 authorizationButton.addEventListener('click', openLoginWindow);
-
-
-const closeButton = document.getElementById('close-button');
-closeButton.addEventListener('click', (event) => {
+const closeLoginWindowButton = document.getElementById('close-login-window-button');
+closeLoginWindowButton.addEventListener('click', (event) => {
     loginWindow.style.display = 'none';
 })
 
 
+// Shopping Cart Button
+let cartButton = document.getElementById('cart-button');
+cartButton.disabled = true;
+
+const cartWindow = document.getElementById('modal-cart-window');
+
+function openShoppingCartWindow() {
+    cartWindow.style.display = 'block';
+}
+
+cartButton.addEventListener('click', openShoppingCartWindow);
+
+function closeShoppingCartWindow() {
+    cartWindow.style.display = 'none';
+}
+
+const closeCartWindowButton = document.getElementById('close-cart-window-button');
+closeCartWindowButton.addEventListener('click', closeShoppingCartWindow);
 //Shop section
 
 const productItems = [
@@ -81,19 +99,19 @@ function checkLoginData(event) {
     // check if stored data from register-form is equal to data from login form
     if (userName.value == storedName && userPw.value == storedPw) {
         localStorage.setItem('login', 'true');
-        alert('You are loged in.');
         cartButton.disabled = false;
+        authorizationButton.innerHTML = 'Log out';
 
         const buyButtons = document.querySelectorAll('.buy-button');
-        console.log(buyButtons);
         let buyButtonsArr = [...buyButtons];
-        console.log(buyButtonsArr);
         for (let buyButton of buyButtonsArr) {
             buyButton.disabled = false;
         }
 
-        loginWindow.style.display = 'none';
+        loginSuccessfulMessage.style.display = 'block';
+        document.getElementById('need-to-login').style.display = 'none';
         event.preventDefault();
+
     } else {
         alert('Data is not correct. Please, try again.');
     }

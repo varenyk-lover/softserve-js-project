@@ -265,7 +265,6 @@ h1 {
   justify-content: space-between;
 
 
-
   .authorization-button {
     @media screen and (max-width: 992px) {
       margin-bottom: 20px;
@@ -293,7 +292,6 @@ h1 {
     margin-top: 20px;
     text-align: center;
   }
-
 
 }
 
@@ -327,13 +325,7 @@ h1 {
   }
 }
 
-#close-button {
-  //background-color: #FF5400;
-  //box-shadow: 0 0 20px #FFFFFF;
-  //color: white;
-  //border-radius: 55px;
-  //border-style: solid;
-  //font-family: "Gilroy-Bold", sans-serif;
+#close-login-window-button {
   font-size: 20px;
   width: 50px;
   height: 50px;
@@ -343,11 +335,27 @@ h1 {
   top: 20px;
 }
 
+#login-successful {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 250px;
+}
+
 .portfolio-content-container img {
   width: 100%;
   object-fit: contain;
 }
 
+#close-cart-window-button {
+  font-size: 20px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  transform: translateX(-90%);
+  top: 20px;
+}
 
 /*SECTION 2 Shop*/
 
