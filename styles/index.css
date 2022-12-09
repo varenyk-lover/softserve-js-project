@@ -254,6 +254,11 @@ h1 {
   object-fit: contain;
 }
 
+.portfolio-content-container img {
+  width: 100%;
+  object-fit: contain;
+}
+
 .account-buttons-container {
   padding-top: 5px;
   padding-bottom: 18px;
@@ -331,11 +336,6 @@ h1 {
   margin-top: 250px;
 }
 
-.portfolio-content-container img {
-  width: 100%;
-  object-fit: contain;
-}
-
 #close-cart-window-button {
   font-size: 20px;
   width: 50px;
@@ -344,6 +344,23 @@ h1 {
   right: 0;
   transform: translateX(-90%);
   top: 20px;
+}
+
+.no-items-header {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translateX(-50%);
+}
+.no-items-header h4 {
+  font-size: 2em;
+  color: #828282;
+  text-align: center;
+}
+
+.items-box {
+  margin-top: 20px;
+  padding: 20px;
 }
 
 /*SECTION 2 Shop*/

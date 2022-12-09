@@ -22,12 +22,31 @@ closeLoginWindowButton.addEventListener('click', (event) => {
 
 // Shopping Cart Button
 let cartButton = document.getElementById('cart-button');
-cartButton.disabled = true;
+// !!!!!!!!!!!! Поки розблочила
+// cartButton.disabled = true;
 
 const cartWindow = document.getElementById('modal-cart-window');
 
 function openShoppingCartWindow() {
     cartWindow.style.display = 'block';
+    const productsInCart = localStorage.getItem('products');
+    const shoppingBox = document.getElementById('shopping-box');
+    if (productsInCart) {
+        shoppingBox.innerHTML =
+            `<div class="items-box">Here will be render items</div>
+                    <div class="register-button-block">
+                        <button class="button" id="checkout-button">Checkout</button>
+                    </div>`;
+    } else {
+        shoppingBox.innerHTML =
+            // `<div class="no-items-header"><h4>No items yet</h4></div>`;
+        `<div class="items-box">
+Here will be render items
+</div>
+                    <div class="register-button-block">
+                        <button class="button" id="checkout-button">Checkout</button>
+                    </div>`;
+    }
 }
 
 cartButton.addEventListener('click', openShoppingCartWindow);
@@ -38,28 +57,34 @@ function closeShoppingCartWindow() {
 
 const closeCartWindowButton = document.getElementById('close-cart-window-button');
 closeCartWindowButton.addEventListener('click', closeShoppingCartWindow);
-//Shop section
+
+
+//SHOP SECTION
 
 const productItems = [
     {
         id: "health",
         img: "../images/hospital-regular.svg",
         price: 5,
+        productCode: 'h',
     },
     {
         id: "love",
         img: "../images/heart-regular.svg",
         price: 10,
+        productCode: 'l',
     },
     {
         id: "time",
         img: "../images/clock-regular.svg",
         price: 8,
+        productCode: 't',
     },
     {
         id: "peace",
         img: "../images/peace-solid.svg",
         price: 4,
+        productCode: 'p',
     },
 ];
 
@@ -72,7 +97,7 @@ document.getElementById('cardContainer').innerHTML = productItems.map(shopCard =
                 <div class="price-box">
                     <span>${shopCard.price}</span>
                     <div><img class="star-icon" alt="Star icon" src="images/star-solid.svg"></div>
-                    <button class="button buy-button" disabled id="buy-button" 
+                    <button class="button buy-button" id="${shopCard.productCode}" 
                     title=" Please, log in, if you want buy something.">Buy</button>
                 </div>
             </div>`
@@ -122,18 +147,24 @@ let loginForm = document.getElementById('login-form');
 loginForm.addEventListener('submit', checkLoginData);
 
 
-/*function enableBuyButton() {
+/*
+function enableBuyButton() {
 
     let checkActiveLogin = localStorage.getItem('login');
-
-    if (checkActiveLogin === 'true') {
-        console.log('Here will be a function to open cart');
-    } else {
-        openLoginWindow();
+    const buyButtons = document.querySelectorAll('.buy-button');
+    let buyButtonsArr = [...buyButtons];
+    for (let buyButton of buyButtonsArr) {
+        if (checkActiveLogin === 'true') {
+            console.log('Here will be a function to open cart');
+        } else {
+            openLoginWindow();
+        }
     }
+
 }
 
-buyButton.addEventListener('click', enableBuyButton)*/
+*/
+
 
 /*function enableShoppingCartButton() {
 
@@ -146,9 +177,8 @@ buyButton.addEventListener('click', enableBuyButton)*/
     }
 }
 
-authorizationButton.addEventListener('click', enableShoppingCartButton);
+authorizationButton.addEventListener('click', enableShoppingCartButton);*/
 
-*/
 /*let cartItems = [];
 const addToCartHandler = (id) => {
     productItems.map((item) => {
