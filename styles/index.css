@@ -336,33 +336,6 @@ h1 {
   margin-top: 250px;
 }
 
-#close-cart-window-button {
-  font-size: 20px;
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  right: 0;
-  transform: translateX(-90%);
-  top: 20px;
-}
-
-.no-items-header {
-  position: absolute;
-  left: 50%;
-  top: 35%;
-  transform: translateX(-50%);
-}
-.no-items-header h4 {
-  font-size: 2em;
-  color: #828282;
-  text-align: center;
-}
-
-.items-box {
-  margin-top: 20px;
-  padding: 20px;
-}
-
 /*SECTION 2 Shop*/
 .section-skills {
   padding-bottom: 110px;
@@ -421,6 +394,13 @@ h1 {
   margin: 3px 0 0 10px;
 }
 
+.flex-column {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
 h3 {
   color: #828282;
   font-size: 18px;
@@ -454,6 +434,76 @@ h3 {
   justify-content: center;
 }
 
+#modal-cart-window {
+  height: 550px;
+  overflow-y: scroll;
+}
+
+#close-cart-window-button {
+  font-size: 20px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  transform: translateX(-90%);
+  top: 20px;
+}
+
+.no-items-header {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translateX(-50%);
+}
+.no-items-header h4 {
+  font-size: 2em;
+  color: #828282;
+  text-align: center;
+}
+
+.items-box {
+  margin-top: 20px;
+  padding: 20px;
+}
+.items-box .display-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkout-button-block {
+  padding: 20px 10px;
+}
+
+.cart-product-card {
+  width: auto;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+.cart-product-card .price-box {
+  width: 200px;
+}
+.cart-product-card .price-box .price-container {
+  display: flex;
+  padding-top: 4px;
+}
+.cart-product-card .price-box .counter-box {
+  display: flex;
+}
+.cart-product-card .price-box .counter-box .counter {
+  border: 1px solid #828282;
+  margin: 8px;
+  border-radius: 20%;
+  padding-top: 2px;
+  width: 25px;
+  height: 25px;
+}
+.cart-product-card .price-box .counter-box .counter-button {
+  margin-top: 6px;
+  width: 40px;
+  height: 30px;
+}
+
 /*FOOTER Contacts*/
 footer {
   padding: 40px 250px 123px 250px;
@@ -474,13 +524,6 @@ footer {
   footer {
     padding: 40px 30px 90px;
   }
-}
-
-.flex-column {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .contacts-content-container {

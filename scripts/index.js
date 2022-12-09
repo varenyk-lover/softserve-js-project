@@ -25,38 +25,6 @@ let cartButton = document.getElementById('cart-button');
 // !!!!!!!!!!!! Поки розблочила
 // cartButton.disabled = true;
 
-const cartWindow = document.getElementById('modal-cart-window');
-
-function openShoppingCartWindow() {
-    cartWindow.style.display = 'block';
-    const productsInCart = localStorage.getItem('products');
-    const shoppingBox = document.getElementById('shopping-box');
-    if (productsInCart) {
-        shoppingBox.innerHTML =
-            `<div class="items-box">Here will be render items</div>
-                    <div class="register-button-block">
-                        <button class="button" id="checkout-button">Checkout</button>
-                    </div>`;
-    } else {
-        shoppingBox.innerHTML =
-            // `<div class="no-items-header"><h4>No items yet</h4></div>`;
-        `<div class="items-box">
-Here will be render items
-</div>
-                    <div class="register-button-block">
-                        <button class="button" id="checkout-button">Checkout</button>
-                    </div>`;
-    }
-}
-
-cartButton.addEventListener('click', openShoppingCartWindow);
-
-function closeShoppingCartWindow() {
-    cartWindow.style.display = 'none';
-}
-
-const closeCartWindowButton = document.getElementById('close-cart-window-button');
-closeCartWindowButton.addEventListener('click', closeShoppingCartWindow);
 
 
 //SHOP SECTION
@@ -103,6 +71,54 @@ document.getElementById('cardContainer').innerHTML = productItems.map(shopCard =
             </div>`
 ).join('');
 
+
+const cartWindow = document.getElementById('modal-cart-window');
+
+function openShoppingCartWindow() {
+    cartWindow.style.display = 'block';
+    const productsInCart = localStorage.getItem('products');
+    const shoppingBox = document.getElementById('shopping-box');
+    // if else поміняй місцями
+    if (productsInCart) {
+        shoppingBox.innerHTML =
+        `<div class="no-items-header"><h4>No items yet</h4></div>`;
+    } else {
+
+        shoppingBox.innerHTML =  ` <div class="items-box" id="item-box"></div>
+<div class="checkout-button-block">
+            <button class="button" id="checkout-button">Checkout</button>
+        </div>`;
+        document.getElementById('item-box').innerHTML = productItems.map(shopCard =>
+           ` <div class="skills-card flex-column cart-product-card">
+<div class="imageItemBox">
+                    <img alt="product icon" id="${shopCard.id}" class="image-item" src="${shopCard.img}">
+                </div>
+                <h3>Health</h3>
+                <div class="price-box">
+                <div class="price-container">
+                    <span>${shopCard.price}</span>
+                    <div><img class="star-icon" alt="Star icon" src="images/star-solid.svg"></div>
+                    </div>
+                    <div class="counter-box">
+                    <button class="button minus-button counter-button" id="${shopCard.productCode}">-</button>
+                    <div class="counter">10</div>
+                      <button class="button plus-button counter-button">+</button>
+                      </div>
+        </div>
+    </div>
+        `
+    ).join('');
+    }
+}
+
+cartButton.addEventListener('click', openShoppingCartWindow);
+
+function closeShoppingCartWindow() {
+    cartWindow.style.display = 'none';
+}
+
+const closeCartWindowButton = document.getElementById('close-cart-window-button');
+closeCartWindowButton.addEventListener('click', closeShoppingCartWindow);
 
 // Login
 function storeLoginData() {
