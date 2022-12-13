@@ -448,7 +448,6 @@ h3 {
 .imageItemBox {
   width: 165px;
   height: 165px;
-
 }
 
 .section-skills {
@@ -471,12 +470,9 @@ h3 {
 }
 
 .no-items-header {
-  position: absolute;
-  left: 50%;
-  top: 35%;
-  transform: translateX(-50%);
 
   h4 {
+    margin: 120px 5px;
     font-size: 2em;
     color: #828282;
     text-align: center;
@@ -485,7 +481,7 @@ h3 {
 
 .items-box {
   margin-top: 20px;
-  padding: 20px;
+  padding: 20px 100px;
 
   .display-flex {
     display: flex;
@@ -495,8 +491,20 @@ h3 {
 
 }
 
+
 .checkout-button-block {
   padding: 20px 10px;
+
+  .coin-subtotal-box {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-top: 5px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
 }
 
 .cart-product-card {
@@ -504,12 +512,22 @@ h3 {
   flex-direction: row;
   margin-bottom: 20px;
 
+  .imageItemCartBox {
+    width: 145px;
+    height: 145px;
+  }
   .price-box {
     width: 200px;
 
     .price-container {
       display: flex;
       padding-top: 4px;
+
+      .star-icon {
+      height: 20px;
+      width: 20px;
+      margin: 10px 0 0 2px;
+      }
     }
     .counter-box {
       display: flex;

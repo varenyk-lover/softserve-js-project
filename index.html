@@ -60,18 +60,17 @@
                 <div>
                     <button class="button cart-button" id="cart-button"
                             title="Please, log in, if you want buy something.">Shopping cart
-                    </button>
+                    <span id="number-of-items-on-button"></span></button>
                 </div>
             </div>
 
             <div id="modal-login-window" class="modal-window">
                 <button class="button" id="close-login-window-button">x</button>
                 <div id="login-successful">
-
                     <h2>Log in successful</h2>
                 </div>
-                <div id="need-to-login">
 
+                <div id="need-to-login">
                     <h2>Log in form</h2>
                     <p id="modal-window-text">
                         Please, log in, if you want buy something.
@@ -98,7 +97,17 @@
                 <button class="button" id="close-cart-window-button">x</button>
                 <h2>Shopping cart</h2>
 
-                <div class="shopping-box" id="shopping-box"></div>
+                <div class="shopping-box" id="shopping-box">
+                    <!--                    render cart items here-->
+                </div>
+                <div class="checkout-button-block">
+                    <h4 id="subtotal">Subtotal (0 items): 0
+                        <div class="coin-subtotal-box">
+                            <img class="star-icon" alt="Star icon" src="images/star-solid.svg">
+                        </div>
+                    </h4>
+                    <button class="button" id="checkout-button" disabled>Checkout</button>
+                </div>
             </div>
 
             <div class="little-portrait">
