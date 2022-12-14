@@ -10,8 +10,14 @@ const closeCartWindowButton = document.getElementById('close-cart-window-button'
 let loginForm = document.getElementById('login-form');
 let subtotalHeader = document.getElementById('subtotal');
 let numberOfItemsOnButton = document.getElementById('number-of-items-on-button');
+let checkOutButton = document.getElementById('checkout-button');
 
-// Authorization Button
+// HOME SECTION
+// Creating verification info for Login
+localStorage.setItem('name', 'Hanna');
+localStorage.setItem('pw', '123456');
+
+// Authorization button
 authorizationButton.innerHTML = 'Log in';
 loginSuccessfulMessage.style.display = 'none';
 
@@ -26,9 +32,42 @@ closeLoginWindowButton.addEventListener('click', (event) => {
 })
 
 
-// Shopping Cart Button
-// !!!!!!!!!!!! Поки розблочила
-// cartButton.disabled = true;
+// Process of logging in
+function checkLoginData(event) {
+    // stored data from the register-form
+    let storedName = localStorage.getItem('name');
+    let storedPw = localStorage.getItem('pw');
+
+    // entered data from the login-form
+    let userName = document.getElementById('userName');
+    let userPw = document.getElementById('userPw');
+
+    // check if stored data from register-form is equal to data from login form
+    if (userName.value === storedName && userPw.value === storedPw) {
+         JSON.stringify(localStorage.setItem('login', 'true'));
+        let loginStatus = JSON.parse(localStorage.getItem('login'));
+console.log(loginStatus);
+        authorizationButton.innerHTML = 'Log out';
+
+        if (authorizationButton.innerHTML = 'Log out') {
+            cartButton.disabled = false;
+            const buyButtons = document.querySelectorAll('.buy-button');
+            let buyButtonsArr = [...buyButtons];
+            for (let buyButton of buyButtonsArr) {
+                buyButton.disabled = false;
+            }
+        }
+        loginSuccessfulMessage.style.display = 'block';
+        document.getElementById('need-to-login').style.display = 'none';
+        event.preventDefault();
+
+    } else {
+        alert('Data is not correct. Please, try again.');
+    }
+}
+
+loginForm.addEventListener('submit', checkLoginData);
+
 
 
 //SHOP SECTION
@@ -74,12 +113,10 @@ shopCard.innerHTML = productItems.map(shopCard =>
                     <span>${shopCard.price}</span>
                     <div><img class="star-icon" alt="Star icon" src="images/star-solid.svg"></div>
                     <button class="button buy-button" id="${shopCard.productCode}" 
-                    title=" Please, log in, if you want buy something." onclick="addToCart(${shopCard.id})">Buy</button>
+                    title=" Please, log in, if you want buy something." onclick="addToCart(${shopCard.id})" disabled>Buy</button>
                 </div>
             </div>`
 ).join('');
-
-
 
 
 function openShoppingCartWindow() {
@@ -97,12 +134,13 @@ closeCartWindowButton.addEventListener('click', closeShoppingCartWindow);
 
 
 // ADD TO CART
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('Cart')) || [];
+updateCart();
 
 function addToCart(id) {
     // check if productItem already exist in cart
     if (cart.some((item) => item.id === id)) {
-       changeNumberOfUnits('plus', id);
+        changeNumberOfUnits('plus', id);
     } else {
         const item = productItems.find((product) => product.id === id);
 
@@ -115,18 +153,22 @@ function addToCart(id) {
     updateCart();
 }
 
-// change items after adding in cart new one
+// Change items after adding in cart new one
 function updateCart() {
     renderCartItems();
     renderSubtotal();
+
+//     save cart to local storage
+    localStorage.setItem('Cart', JSON.stringify(cart));
 }
+
 // Calculate and render Subtotal
 function renderSubtotal() {
     let totalPrice = 0, totalItems = 0;
 
     cart.forEach((item) => {
-totalPrice += item.price * item.numberOfUnits;
-totalItems += item.numberOfUnits;
+        totalPrice += item.price * item.numberOfUnits;
+        totalItems += item.numberOfUnits;
     });
 
     subtotalHeader.innerHTML = `
@@ -140,16 +182,9 @@ totalItems += item.numberOfUnits;
 // Render items in cart, if user buy something
 function renderCartItems() {
     // Звяжись з localStorage!!!!!!!!
-    const productsInCart = localStorage.getItem('products');
     const shoppingBox = document.getElementById('shopping-box');
 // if else поміняй місцями
-    if (productsInCart) {
-        // if there are some products, so render them
-        shoppingBox.innerHTML =
-            `<div class="no-items-header"><h4>No items yet</h4></div>`;
-        // console.log('test');
-    } else {
-
+    if (cart.length !== 0) {
         shoppingBox.innerHTML =
             ` <div class="items-box" id="item-box">
 <!-- cart items will be here-->
@@ -179,6 +214,13 @@ function renderCartItems() {
     </div>
         `;
         })
+        checkOutButton.disabled = false;
+    } else {
+        // if there are some products, so render them
+        shoppingBox.innerHTML =
+            `<div class="no-items-header"><h4>No items yet</h4></div>`;
+        // console.log('cart is empty');
+        checkOutButton.disabled = true;
     }
 }
 
@@ -194,9 +236,9 @@ function changeNumberOfUnits(action, id) {
         let numberOfUnits = item.numberOfUnits;
 
         if (item.id === id) {
-            if(action === 'minus' && numberOfUnits > 0) {
+            if (action === 'minus' && numberOfUnits > 0) {
                 numberOfUnits--;
-            } else if(action === 'plus') {
+            } else if (action === 'plus') {
                 numberOfUnits++;
             }
         }
@@ -209,49 +251,6 @@ function changeNumberOfUnits(action, id) {
 
     updateCart();
 }
-
-
-// Login
-function storeLoginData() {
-    localStorage.setItem('name', 'Hanna');
-    localStorage.setItem('pw', '123456');
-}
-
-storeLoginData();
-
-function checkLoginData(event) {
-    // stored data from the register-form
-    let storedName = localStorage.getItem('name');
-    let storedPw = localStorage.getItem('pw');
-
-    // entered data from the login-form
-    let userName = document.getElementById('userName');
-    let userPw = document.getElementById('userPw');
-
-    // check if stored data from register-form is equal to data from login form
-    if (userName.value == storedName && userPw.value == storedPw) {
-        localStorage.setItem('login', 'true');
-        cartButton.disabled = false;
-        authorizationButton.innerHTML = 'Log out';
-
-        const buyButtons = document.querySelectorAll('.buy-button');
-        let buyButtonsArr = [...buyButtons];
-        for (let buyButton of buyButtonsArr) {
-            buyButton.disabled = false;
-        }
-
-        loginSuccessfulMessage.style.display = 'block';
-        document.getElementById('need-to-login').style.display = 'none';
-        event.preventDefault();
-
-    } else {
-        alert('Data is not correct. Please, try again.');
-    }
-}
-
-
-
-loginForm.addEventListener('submit', checkLoginData);
 
 
 /*
@@ -277,7 +276,7 @@ function enableBuyButton() {
 
     const authorizationButton = document.getElementById('authorization-button');
 
-    if (authorizationButton.clicked === true) {
+    if (authorizationButton.innerHt === true) {
         cartButton.disabled = false;
     } else {
         openLoginWindow();
